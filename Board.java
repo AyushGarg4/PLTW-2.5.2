@@ -11,6 +11,7 @@ class Board {
     setRandomPhrase();
   }
 
+  // Helper method to load all phrases from the phrases.txt file.
   private String[] loadPhrases() {
     String contents = "";
     try {
@@ -29,14 +30,16 @@ class Board {
     phrases = contents.split("\n");
     return phrases;
   }
-  
-  private String generateRandomPhrase() {
-    String[] arr = loadPhrases();
-    int len = arr.length; 
+
+  // Helper method to return a random phrase.
+  private String generateRandomPhrase() {    
+    int len = phrases.length; 
     int rand = (int)(Math.random() * len);
-    return arr[rand];
+    
+    return phrases[rand];
   }
 
+  // Creates the inital state, with _ to signify any non-space character.
   private String generateInitialState() {
     StringBuilder builder = new StringBuilder();
 
@@ -47,7 +50,7 @@ class Board {
 
     return builder.toString();
   }
-  
+
   public String getPhrase() {
      return phrase;
   }
